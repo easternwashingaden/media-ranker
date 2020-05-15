@@ -6,7 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
-require 'date'
 
 WORK_FILE = Rails.root.join('db','works_seeds.csv')
 puts "Loading raw work data from #{WORK_FILE}"
