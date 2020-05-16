@@ -1,12 +1,13 @@
 <section>
-  <h2><%= @work.title %></h2>
+  <h2><%= @work.title%></h2>
   <p>Created by: <%= @work.creator%></p>
   <p>Published: <%= @work.publication_year%></p>
-  <p><%= @work.description %></p>
-  <section>
-    <%=link_to "Back to media ranks", root_path, :class => "btn btn-primary" %>
-    <%=link_to "Edit", edit_work_path(@work.id), method: :get, :class => "btn btn-primary" %>
-    <%=link_to "Upvote", root_path, :class => "btn btn-primary" %>
-    <%=link_to "delete", work_path(@work.id), method: :delet, :class => "btn btn-primary" %>
-  </section>
+  <p><%= @work.description%></p>
 </section>
+<section>
+  <%=link_to "Back to media ranks", root_path, :class => "btn btn-primary" %>
+  <%=link_to "Edit", edit_work_path(@work.id), method: :get, :class => "btn btn-primary" %>
+  <%=link_to "Upvote", root_path, :class => "btn btn-primary" %>
+  <%=link_to "delete", work_path(@work.id), method: :delet, :class => "btn btn-primary" %>
+</section>
+

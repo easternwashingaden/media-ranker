@@ -20,7 +20,7 @@ class WorksController < ApplicationController
     @work = Work.new(work_params)
     if @work.save
       flash[:success] = "Work added successfully"
-      redirect_to work_path(@work)
+      redirect_to works_path
       return
     else
       flash.now[:error] = "Something went wrong. Work not added"
@@ -29,6 +29,21 @@ class WorksController < ApplicationController
     end
   end
 
+  def update
+    @work = Work.find_by(id: params[:id])
+    
+    if @work.nil?
+      head :not_found
+      return
+    elsif @work.update(work_params)
+      redirect_to work_path(@work)
+      return
+    else 
+      render :edit, status: :bad_request
+      return
+    end
+  end
+  
   private
 
   def work_params
