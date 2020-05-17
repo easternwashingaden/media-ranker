@@ -19,11 +19,11 @@ class WorksController < ApplicationController
   def create
     @work = Work.new(work_params)
     if @work.save
-      flash[:success] = "Work added successfully"
+      flash[:success] = " Successfully created #{@work.category} #{@work.title}"
       redirect_to works_path
       return
     else
-      flash.now[:error] = "Something went wrong. Work not added"
+      flash.now[:error] = "Something went wrong. #{@work.title} was NOT added 😞"
       render :new, status: :bad_request
       return
     end
@@ -55,13 +55,13 @@ class WorksController < ApplicationController
 
   def destroy
     @work = Work.find_by(id: params[:id])
-    
     if @work.nil?
       head :not_found
       return
     else
       @work.destroy
-      redirect_to work_path
+      flash[:success] = "Successfully deleted #{@work.category} #{@work.title}"
+      redirect_to works_path
       return
     end
   end 
