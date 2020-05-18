@@ -1,21 +1,6 @@
 require "test_helper"
 
 describe UsersController do
-  it "must get index" do
-    get users_index_url
-    must_respond_with :success
-  end
-
-  it "must get show" do
-    get users_show_url
-    must_respond_with :success
-  end
-
-  it "must get create" do
-    get users_create_url
-    must_respond_with :success
-  end
-
   it "can get the login form" do 
     get login_path
 
@@ -58,5 +43,27 @@ describe UsersController do
 
       expect(session[:user_id]).must_be_nil
     end
+  end
+
+  describe "current user" do
+    it "can return the pate if the user is logged in" do
+      # Arrage
+      login()
+
+      # Act
+      get current_user_path
+
+      # Assert
+      must_respond_with :success
+    end
+
+    it "redirects us back if the user is not logged in" do
+      # Act
+      get current_user_path
+
+      # Assert
+      must_respond_with :redirect
+      expect(flash[:error]).must_equal "You must be logged in to view this page"
+    end 
   end
 end
