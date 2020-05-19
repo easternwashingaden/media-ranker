@@ -17,4 +17,15 @@ class Work < ApplicationRecord
     works = Work.all
     return works.sample
   end
+
+  # def self.order_by_votes_count(category)
+  #   highest_vote_count = 0
+  #   works_list_order_by_votes_count = []
+  #   works = Work.where(category: category)
+  #   works.each |work|
+  #     if work.votes.count > highest_vote_count
+  #       highest_vote_count = work.votes.count
+  #       works_list_order_by_votes_count << 
+  # end
+  
 end
