@@ -1,2 +1,29 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<section>
+  <h2>User Summary:<%= @user.name%></h2>
+  <p>Joined site <%= @user.created_at.strftime("%B %e, %Y")%></p>
+</section>
+
+<section class="user-votes__container">
+  <h3 class="user-votes__header">Votes</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Media Title</th>
+        <th>Created By</th>
+        <th>Published</th>
+        <th>Category</th>
+      
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.votes.each do |vote|%>
+        <tr>
+          <td><%= link_to Work.find_by(id: vote.work_id).title, work_path(vote.work_id) %></td>
+          <td><%= Work.find_by(id: vote.work_id).creator%></td>
+          <td><%= Work.find_by(id: vote.work_id).publication_year %></td>
+          <td><%= Work.find_by(id: vote.work_id).category %></td>
+        </tr>
+    </tbody>
+    <%end%>
+  </table>
+</section>
