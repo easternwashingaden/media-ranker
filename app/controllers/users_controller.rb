@@ -1,13 +1,18 @@
 class UsersController < ApplicationController
+
   def index
+    @users = User.all
   end
 
   def show
-  end
+    @user = User.find_by(id: params[:id])
 
-  def create
+    if @user.nil?
+      redirect_to users_path
+      return
+    end
   end
-
+  
   def login_form
     @user = User.new
   end
@@ -58,4 +63,10 @@ class UsersController < ApplicationController
       return
     end
   end
+
+  private
+  def user_params
+    return params.require(:user).permit(:name)
+  end
+
 end
