@@ -1,10 +1,5 @@
 class VotesController < ApplicationController
-  def show
-    @vote = Vote.find_by(id: params[:id])
-    head :not_found if @vote.nil?
-    return
-  end
-
+  
   def create
     # Check if there is a user logged in
     if session[:user_id]
