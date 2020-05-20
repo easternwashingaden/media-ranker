@@ -49,14 +49,15 @@
     </nav>
   </header>
 
-    <section class="flash-msg__section">
+    <section class="alert__container">
       <% flash.each do |name, message| %>
-        <strong class="<%= name %>">
+        <strong class="alert alert-success">
           <%= message %>
         </strong>
       <% end %>
     </section>
-
+  <main>
     <%= yield %>
+  </main>
   </body>
 </html>
