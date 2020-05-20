@@ -3,8 +3,8 @@
       <span class="spotlight__header--prefix">Media Spotlight</span>
       <% work = Work.spot_light %>
       
-      <%= link_to work.title, work_path(work.id) %> by 
-      <%= work.creator%>
+      <%= link_to work.title, work_path(work.id), :class => "spotlight__link-to" %> by 
+      <%= work.creator %>
     </h2>
     <p class="spotlight__description">
       28 votes - <%= work.description%>
@@ -23,7 +23,7 @@
           <%= link_to work.title, work_path(work)%>
           <small class="top-ten__creator"> By <%= work.creator %></small>
         </h4>
-      <p> 0 votes </p>
+        <p><%= work.votes.count %> </p>
       </li>
     <% end %>
     </ul>
@@ -40,7 +40,7 @@
           <%= link_to work.title, work_path(work)%>
           <small class="top-ten__creator"> By <%= work.creator %></small>
         </h4>
-      <p> 0 votes </p>
+        <p> <%= work.votes.count %> </p>
       </li>
     <% end %>
     </ul>
@@ -57,10 +57,9 @@
           <%= link_to work.title, work_path(work)%>
           <small class="top-ten__creator"> By <%= work.creator %></small>
         </h4>
-      <p> 0 votes </p>
+        <p> <%= work.votes.count %> </p>
       </li>
     <% end %>
     </ul>
   </section>
-
 </section>
