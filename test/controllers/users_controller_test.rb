@@ -4,7 +4,32 @@ describe UsersController do
   it "can get the login form" do 
     get login_path
 
-    must_respond_with   :success
+    must_respond_with :success
+  end
+
+  let (:user) {
+    User.create!(
+      name: "Lak Mok"
+    )
+  }
+
+  describe "index" do
+    it "responds with success when there are many users saved" do
+      get users_path
+      must_respond_with :success
+    end
+  end
+
+  describe "show" do
+    it "responds with success when showing an existing valid user" do
+      get user_path(user.id)
+      must_respond_with :success
+    end
+
+    it "responds with 404 with an invalid user id" do
+      get user_path(-1)
+      must_redirect_to users_path
+    end
   end
 
   describe "loggin in" do 
