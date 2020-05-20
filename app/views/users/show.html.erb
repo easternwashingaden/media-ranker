@@ -12,18 +12,21 @@
         <th>Created By</th>
         <th>Published</th>
         <th>Category</th>
+        <th>Voted On</th>
       
       </tr>
     </thead>
     <tbody>
       <% @user.votes.each do |vote|%>
+        <% @work = Work.find_by(id: vote.work_id)%>
         <tr>
-          <td><%= link_to Work.find_by(id: vote.work_id).title, work_path(vote.work_id) %></td>
-          <td><%= Work.find_by(id: vote.work_id).creator%></td>
-          <td><%= Work.find_by(id: vote.work_id).publication_year %></td>
-          <td><%= Work.find_by(id: vote.work_id).category %></td>
+          <td><%= link_to @work.title, work_path(vote.work_id) %></td>
+          <td><%= @work.creator%></td>
+          <td><%= @work.publication_year %></td>
+          <td><%= @work.category %></td>
+          <td><%= @work.created_at.strftime("%B %e, %Y")%></td>
         </tr>
     </tbody>
-    <%end%>
+    <% end %>
   </table>
 </section>
