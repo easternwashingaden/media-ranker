@@ -1,3 +1,4 @@
+
 <section>
   <h2><%= @work.title%></h2>
   <p>Created by: <%= @work.creator%></p>
@@ -10,8 +11,27 @@
   <%=link_to "Upvote", work_votes_path(@work.id), method: :post, :class => "btn btn-primary" %>
   <%=link_to "delete", work_path(@work.id), 
       method: :delete, 
-      :class => "btn btn-primary", 
+      :class => "btn btn-danger", 
       data: {confirm: "Are you sure you want to delete this work: #{@work.title}? This will also delete all votes related to this work."} 
   %> 
 </section>
+
+<section class="works-votes__container">
+  <h3 class="works-votes__header"><%= @work.votes.count %> Votes for this Album</h3>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>User</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+     <% @work.votes.each do |vote|%>
+      <% @user = User.find_by(id: vote.user_id)%>
+      <tr>
+        <td><%= link_to @user.name, user_path(@user.id) %></td>
+        <td><%= vote.created_at.strftime("%B %e, %Y")%></td>
+      </tr>
+    <% end %>
+</tr></tbody></table></section>
 
