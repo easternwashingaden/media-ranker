@@ -10,22 +10,39 @@ class Work < ApplicationRecord
 
   def self.top_ten_list(category)
     works = Work.where(category: category)
-    return works.limit(10)
+
+    hash = Hash.new(0)
+
+    works.each do |work|
+      hash[work] = work.votes.count
+    end
+    
+    sorted_hash = hash.sort_by {|key, value| -value}
+    sorted_hash_keys = sorted_hash.to_h.keys
+    return sorted_hash_keys.take(10)
   end
 
   def self.spot_light
     works = Work.all
-    return works.sample
+
+    hash = Hash.new(0)
+    works.each do |work|
+      hash[work] = work.votes.count
+    end
+
+    most_voted_work = hash.max_by { |key, value| value}
+    return most_voted_work.first
   end
 
-  # def self.order_by_votes_count(category)
-  #   highest_vote_count = 0
-  #   works_list_order_by_votes_count = []
-  #   works = Work.where(category: category)
-  #   works.each |work|
-  #     if work.votes.count > highest_vote_count
-  #       highest_vote_count = work.votes.count
-  #       works_list_order_by_votes_count << 
-  # end
-  
+  def self.order_by_votes_count(category)
+    works = Work.where(category: category)
+
+    hash = Hash.new(0)
+    works.each do |work|
+      hash[work] = work.votes.count
+    end
+
+    sorted_hash = hash.sort_by {|key, value| -value}
+    return sorted_hash.to_h.keys
+  end
 end
