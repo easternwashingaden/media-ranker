@@ -23,7 +23,7 @@ class WorksController < ApplicationController
       redirect_to works_path
       return
     else
-      flash.now[:error] = "Something went wrong. #{@work.title} was NOT added 😞"
+      flash.now[:error] = "Something went wrong. Work was NOT added 😞"
       render :new, status: :bad_request
       return
     end
@@ -45,9 +45,11 @@ class WorksController < ApplicationController
       head :not_found
       return
     elsif @work.update(work_params)
+      flash[:success] = " Successfully updated #{@work.category} #{@work.title}"
       redirect_to work_path(@work)
       return
     else 
+      flash.now[:error] = "Something went wrong. Work cannot be updated 😞"
       render :edit, status: :bad_request
       return
     end
@@ -57,6 +59,12 @@ class WorksController < ApplicationController
     @work = Work.find_by(id: params[:id])
     if @work.nil?
       head :not_found
+      return
+    elsif Vote.where(work_id: @work.id).count > 0 # if the driver has trips, we want to destroy them first; otherwise, the delete driver button will cause an error
+      Vote.where(work_id: @work.id).destroy_all
+      @work.destroy
+      flash[:success] = "Successfully deleted #{@work.category} #{@work.title}"
+      redirect_to works_path
       return
     else
       @work.destroy
