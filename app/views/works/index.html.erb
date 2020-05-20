@@ -1,3 +1,4 @@
+<h2>List of Works</h2>
 <section class="media-table">
   <h4>Albums</h4>  
   <% if @works.where(category: "album").length > 0 %>
@@ -12,7 +13,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @works.where(category: "album").each do |work| %>
+        <% Work.order_by_votes_count("album").each do |work| %>
           <tr>
             <td><%= Vote.count_votes(work.id) %></td>
             <td><%= link_to work.title, work_path(work.id)%></td>
@@ -26,7 +27,6 @@
   <% else %>
     <p>No work in the system!</p>
   <% end %>
-</section>
 
   <h4>Books</h4>
   <% if @works.where(category: "book").length > 0 %>
@@ -41,7 +41,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @works.where(category: "book").each do |work| %>
+        <% Work.order_by_votes_count("book").each do |work| %>
           <tr>
             <td><%= Vote.count_votes(work.id) %></td>
             <td><%= link_to work.title, work_path(work)%></td>
@@ -55,9 +55,8 @@
   <% else %>
     <p>No work in the system!</p>
   <% end %>
-</section>
 
-  <h4>Movie</h4>
+  <h4>Movies</h4>
   <% if @works.where(category: "movie").length > 0 %>
     <table class="table">
       <thead>
@@ -70,7 +69,7 @@
         </tr>
       </thead>
       <tbody>
-        <% @works.where(category: "movie").each do |work| %>
+        <% Work.order_by_votes_count("movie").each do |work| %>
           <tr>
             <td><%= Vote.count_votes(work.id) %></td>
             <td><%= link_to work.title, work_path(work)%></td>
