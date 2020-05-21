@@ -1,0 +1,102 @@
+album1:
+  category: album 
+  title: My Coding Journey1
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true 
+album2:
+  category: album 
+  title: My Coding Journey2
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album3:
+  category: album
+  title: My Coding Journey3
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album4:
+  category: album 
+  title: My Coding Journey4
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album5:
+  category: album 
+  title: My Coding Journey5
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album6:
+  category: album 
+  title: My Coding Journey6
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true 
+album7:
+  category: album 
+  title: My Coding Journey7
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album8:
+  category: album 
+  title: My Coding Journey8
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album9:
+  category: album 
+  title: My Coding Journey9
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album10:
+  category: album 
+  title: My Coding Journey10
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+album11:
+  category: album 
+  title: My Coding Journey11
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+book1:
+  category: book
+  title: Learn Ruby version1
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+book2:
+  category: book
+  title: Learn Ruby version2
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+book3:
+  category: book
+  title: Learn Ruby version3
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+book4:
+  category: book
+  title: Learn Ruby version4
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+book5:
+  category: book
+  title: Learn Ruby version5
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
+movie1:
+  category: movie 
+  title: An example of movie
+  creator: Lak Mok
+  publication_year: 2020
+  description: Ada makes my dream come true
