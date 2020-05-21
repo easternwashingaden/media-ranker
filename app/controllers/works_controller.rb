@@ -60,7 +60,7 @@ class WorksController < ApplicationController
     if @work.nil?
       head :not_found
       return
-    elsif Vote.where(work_id: @work.id).count > 0 # if the driver has trips, we want to destroy them first; otherwise, the delete driver button will cause an error
+    elsif Vote.where(work_id: @work.id).count > 0
       Vote.where(work_id: @work.id).destroy_all
       @work.destroy
       flash[:success] = "Successfully deleted #{@work.category} #{@work.title}"
