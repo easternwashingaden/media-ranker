@@ -271,9 +271,7 @@ h2 {
 main {
     padding: 2rem;
 }
-article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
-    display: block;
-}
+
 .table {
     width: 100%;
     margin-bottom: 1rem;
@@ -347,11 +345,6 @@ article, aside, figcaption, figure, footer, header, hgroup, main, nav, section {
     margin-bottom: 1rem;
 }
 
-
-div {
-    display: block;
-}
-
 .form-control {
     display: block;
     width: 100%;
@@ -377,10 +370,33 @@ div {
     background-color: #d4edda;
     border-color: #c3e6cb;
 }
+
+.alert-warning {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-error {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-alert {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
+
+.alert-notice {
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba;
+}
 .alert {
     position: relative;
-    padding: 0.75rem 1.25rem;
-    margin-bottom: 1rem;
+    padding: 0.7rem 1.2rem;
     border: 1px solid transparent;
     border-radius: 0.25rem;
 }
@@ -413,4 +429,26 @@ h2, .h2 {
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     margin-bottom: 0.5rem;
     line-height: 1.2;
+}
+div {
+    display: block;
+}
+
+.errors {
+    margin-top: -4em;
+    position: relative;
+    max-width: inherit;
+    margin-left: -2rem;
+    margin-right: -2rem;
+    color: #856404;
+    background-color: #fff3cd;
+    border-color: #ffeeba; 
+    border-bottom-left-radius: 0.25rem; 
+    border-bottom-right-radius: 0.25rem; 
+    padding: 0.7rem 0 1rem 3rem;
+}
+
+.top-header {
+    text-align: center;
+    margin-top: 2rem;
 }
