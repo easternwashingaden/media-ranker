@@ -1,10 +1,7 @@
-<%= form_with model: @user, url: login_path do |f| %>
-  <div class="form-group" >
-    <%= f.label :name %>
-    <%= f.text_field :name, :class => "form-control" %>
-  </div>
-  <%= f.submit "Login", class: "btn btn-primary" %>
-<% end %>
+
+<section>
+  <%= render partial: "login_form", locals: { action_name: "Create" } %>
+</section>
 
 <article>
   <h4>A note about logging in</h4>
