@@ -1,5 +1,6 @@
 <section>
-  <h2>User Summary:<%= @user.name%></h2>
+<section>
+  <h2>User Summary: <%= @user.name%></h2>
   <p>Joined site <%= @user.created_at.strftime("%B %e, %Y")%></p>
 </section>
 
@@ -31,5 +32,7 @@
   </table>
 </section>
 
+
 <%= link_to "See all Users", users_path, :class => "btn btn-secondary" %>
 <%= link_to "Back to Media List", root_path, :class => "btn btn-primary" %>
+</section>
