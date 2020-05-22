@@ -2,12 +2,12 @@
   <ul class="errors">
     <% @work.errors.each do |column, message| %>
       <li>
-        <strong><%= column.capitalize %></strong> <%= message %>
+        <span><%= column.capitalize %></span>: <%= message %>
       </li>
     <% end %>
   </ul>
 <% end %>
-
+<h2>Add a new work</h2>
 <%= form_with model: @work, class: 'work-form' do |f| %>
   <div class='form-group'>
     <%= f.label :category %>

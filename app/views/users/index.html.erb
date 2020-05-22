@@ -1,27 +1,30 @@
-<section class="media-table">
-  <h2>List of Users</h2>
-  <% if @users.length > 0 %>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Username</th>
-          <th>Votes</th>
-          <th>Joined</th>
-        </tr>
-      </thead>
-      <tbody>
-        <% @users.each do |user|%>
+<section>
+  <section class="media-table">
+    <h2>List of Users</h2>
+    <% if @users.length > 0 %>
+      <table class="table">
+        <thead>
           <tr>
-            <td><%= link_to user.name, user_path(user.id) %></td>
-            <td><%= user.votes.count %></td>
-            <td><%= user.created_at.strftime("%B %e, %Y") %></td>
+            <th>Username</th>
+            <th>Votes</th>
+            <th>Joined</th>
           </tr>
-        <% end %>
-      </tbody>
-    </table>
-    <% else %>
-      <p>No user in the system!</p>
-  <% end %>
-</section>
+        </thead>
+        <tbody>
+          <% @users.each do |user|%>
+            <tr>
+              <td><%= link_to user.name, user_path(user.id) %></td>
+              <td><%= user.votes.count %></td>
+              <td><%= user.created_at.strftime("%B %e, %Y") %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+        <p>No user in the system!</p>
+    <% end %>
+  </section>
+
 
 <%= link_to "Back to Media List", root_path, :class => "btn btn-secondary" %>
+</section>

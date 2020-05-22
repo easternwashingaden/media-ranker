@@ -79,7 +79,7 @@ describe WorksController do
     it "does not create a work if the form data violates Work validations, and responds with a 400 error" do
       invalid_work_hash = {
         work: {
-          category: nil, 
+          category: "album", 
           title: nil,
           creator: "XXXX",
           publication_year: "2016",
@@ -87,7 +87,7 @@ describe WorksController do
         }
       }
 
-      expect{flash.now[:error]}.must_raise "Something went wrong. Work was NOT added 😞"
+      expect{flash.now[:error]}.must_raise "A problem occurred: Could not create #{invalid_work_hash[:work][:category]}"
       # Act-Assert
       expect {
         post works_path, params: invalid_work_hash
@@ -154,7 +154,7 @@ describe WorksController do
 
       invalid_work_hash = {
         work: {
-          category: nil, 
+          category: "book", 
           title: nil,
           creator: "XXXX",
           publication_year: "2016",
@@ -162,7 +162,7 @@ describe WorksController do
         },
       }
 
-      expect{flash.now[:error]}.must_raise "Something went wrong. Work cannot be updated 😞"
+      expect{flash.now[:error]}.must_raise "A problem occurred: Could not update #{invalid_work_hash[:work][:category]}"
       expect {
         patch work_path(id), params: invalid_work_hash
       }.wont_differ "Work.count"

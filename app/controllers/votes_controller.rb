@@ -2,7 +2,7 @@ class VotesController < ApplicationController
   def new
     @vote = Vote.new
   end
-  
+
   def create
     # Check if there is a user logged in
     if session[:user_id]
@@ -18,7 +18,7 @@ class VotesController < ApplicationController
         redirect_to works_path
         return
       else
-        flash[:warning] = "A problem occurred: Could not upvote"
+        flash[:warning] = "A problem occurred: Could not upvote. The user has already voted for this work."
         redirect_to works_path
         return
       end
