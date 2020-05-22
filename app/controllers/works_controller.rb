@@ -23,7 +23,7 @@ class WorksController < ApplicationController
       redirect_to works_path
       return
     else
-      flash.now[:error] = "Something went wrong. Work was NOT added 😞"
+      flash.now[:warning] = "A problem occurred: Could not create #{@work.category}"
       render :new, status: :bad_request
       return
     end
@@ -49,7 +49,7 @@ class WorksController < ApplicationController
       redirect_to work_path(@work)
       return
     else 
-      flash.now[:error] = "Something went wrong. Work cannot be updated 😞"
+      flash.now[:error] = "A problem occurred: Could not update #{@work.category} "
       render :edit, status: :bad_request
       return
     end
