@@ -71,5 +71,11 @@ describe Vote do
       # From the fixture, there are 4 votes for album 5
       expect(Vote.count_votes(album5.id)).must_equal 4
     end
+
+    it "returns the count of votes of a particular " do
+      book3 = works(:book3)
+      # From the fixture, there are 4 votes for album 5
+      expect(Vote.count_votes(book3.id)).must_equal 0
+    end
   end
 end
